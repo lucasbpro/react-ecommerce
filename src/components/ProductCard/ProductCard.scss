@@ -1,0 +1,30 @@
+.product {
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, .1);
+    overflow: hidden;
+    padding: 0px;
+    width: 24%;
+    text-align: center;
+    margin-bottom: 2px;
+}
+  
+.product-figure {
+    background-color: white;
+
+    & .img {
+        height: 100%;
+        border: none;
+    }
+}
+
+.disccount {
+    background-color: #212529;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: .2rem;
+    position: absolute;
+    right: 0;
+    margin: 0;
+}
