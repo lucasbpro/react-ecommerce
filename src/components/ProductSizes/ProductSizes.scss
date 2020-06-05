@@ -1,0 +1,25 @@
+.product-sizes {
+
+    & h3{
+        font-size: 15px;
+        color: gray;
+    }
+}
+
+.product-sizes-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.product-size-button{
+    color: gray;
+    border: gray 2px solid;
+    width: 40px;
+    margin-right: 5px;
+}
+
+.product-size-button--selected{
+    background-color: black;
+}

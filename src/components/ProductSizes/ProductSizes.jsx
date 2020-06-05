@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {LABEL_PRODUCT_SIZES} from "../../constants";
 
-//import './ProductSizes.scss';
+import './ProductSizes.scss';
 
-const ProductSizes = ({sizesInfo}) => (
-    <div className="product-sizes">
-        <span>{LABEL_PRODUCT_SIZES}</span>
+const ProductSizes = ({sizes}) => {
 
-        {sizesInfo.map( (size,index) =>
-            <button key={index}>{size}</button>
-        )}
+    const [selectedSize, setSize] = useState([]);
 
-    </div>
-);
+    return(
+        <div className="product-sizes">
+            <h3>{LABEL_PRODUCT_SIZES}</h3>
+
+            <div className="product-sizes-buttons">
+                {sizes? 
+                    sizes.map( (size,index) => size.available? 
+                        <button className="product-size-button" key={index}>
+                            <span>{size.size}</span>
+                        </button> : null)
+                    :
+                    null
+                }
+            </div>
+        </div>
+    );
+};
 
 export default ProductSizes;

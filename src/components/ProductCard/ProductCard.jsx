@@ -7,13 +7,18 @@ const ProductCard = ({productInfo}) => (
 
       <figure className="product-figure">
         { productInfo.on_sale ?
-          <span>{productInfo.discount_percentage}</span>
+          <div>{`-${productInfo.discount_percentage}`}</div>
           : null
         }
-        <img src={productInfo.image} alt={productInfo.name} />
+
+        {productInfo.image!=="" ? 
+          <img src={productInfo.image} alt={productInfo.name} />
+          :
+          <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt={productInfo.name} />
+        }
       </figure>
 
-      <h3 className="product-name"> {productInfo.name} </h3>
+      <span className="product-name"> {productInfo.name} </span>
 
       <div className="product-price">
         { productInfo.on_sale ?

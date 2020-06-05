@@ -5,7 +5,7 @@ import {CartItem} from "../../components/CartItem";
 
 const ShoppingCart = () => {
 
-	const shoppingCart = useSelector(store => store.shoppingCart).length;
+	const shoppingCart = useSelector(state => state.shoppingCart);
 
 	return(
 		<div data-testid="shopping-cart" className="shopping-cart">

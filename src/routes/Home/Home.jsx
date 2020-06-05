@@ -3,9 +3,10 @@ import { useDispatch } from "react-redux";
 
 //import Loading from '../../components/Loading';
 
-import Catalog from "../../containers/Catalog"
 import {URL_API} from "../../constants";
-
+import Catalog from "../../containers/Catalog";
+import SearchWindow from '../../containers/SearchWindow/SearchWindow';
+import {updateProductList} from '../../actions';
 import './Home.scss';
 
 const Home = () => {
@@ -13,15 +14,14 @@ const Home = () => {
   const dispatch = useDispatch();
   const [productList,setProductList] = useState([]);
 
-  // pulls data from API
+  // pulls data from API and updates global state
   useEffect(()=>{
     fetch(URL_API).then((response) => response.json()).then(setProductList);
   },[productList]);
 
-  // updates global state
-  useEffect(()=>{
-    dispatch({ type: "UPDATE_PRODUCT_LIST", payload: { productList } })
-  },[dispatch, productList]);
+  useEffect(() => {
+    dispatch(updateProductList(productList))
+  });
 
   return (
     <div data-testid="home" className="home">

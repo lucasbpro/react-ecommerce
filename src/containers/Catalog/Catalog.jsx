@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import ProductCard from '../../components/ProductCard';
 import { Link } from "react-router-dom";
 
+import './Catalog.scss';
+
 const Catalog = () => {
 
 	const products = useSelector(store => store.productList);
@@ -13,9 +15,10 @@ const Catalog = () => {
 			<section className="product-catalog">
 				{products && products.map( (product, index)  => {
 					return ( 
-					<Link to={`/product/${product.style}`} > 
-						<ProductCard key={index} productInfo={product}/>
-					</Link>)
+						<Link to={`/product/${product.style}`} key={index}> 
+							<ProductCard key={index} productInfo={product}/>
+						</Link>
+					)
 				})}
 			</section>
 		</div>
