@@ -8,3 +8,17 @@ This is my final project of AceleraDev React Online @Codenation. This is a sampl
 - allows user to search for a specific product.
 
 The application is a SPA (*Single Page Application*) which relies on React.js and uses Redux for global state managing. There is a similar application running online [here](https://viniciusvinna.netlify.app/react-fashionista).
+
+## How to run this project
+
+Open this project directory in a terminal and install all the dependencies:
+
+```shell
+$ npm install
+```
+Start the development server:
+
+```shell
+$ npm start
+```
+This application will start at [http://localhost:3000](http://localhost/:3000).
