@@ -5,7 +5,7 @@ import './SearchWindow.scss';
 
 const SearchWindow = () => {
 
-	const products = useSelector(state => state.allProducts);
+	const products = useSelector(store => store.productList);
 
 	console.log(products)
 

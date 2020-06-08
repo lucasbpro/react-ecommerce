@@ -1,30 +1,43 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
-import {LABEL_CART_PAYMENT_OPTIONS, LABEL_CART_PRODUCT_SIZE} from "../../constants";
+import { updateItemAmount } from '../../actions';
+import {LABEL_CART_PRODUCT_SIZE,
+        IMAGE_PLACEHOLDER} from "../../constants";
+import './CartItem.scss';
 
-const CartItem = ({productInfo}) => {
+
+const CartItem = ({productInfo, amount, handleClickPlus, handleClickMinus, handleClickRemove}) => {
 
     return(
-        <div>
-            <figure className="product-figure">
-                <img src={productInfo.image} alt={productInfo.name} />
+        <div className="cart-item-container">
+            <figure className="cart-item-figure">
+                {productInfo? productInfo.image!=="" ? 
+                        <img src={productInfo.image} alt={productInfo.name} />
+                        :
+                        <img src={IMAGE_PLACEHOLDER} alt={productInfo.name} />
+                    : null
+                }
             </figure>
 
-            <h3 className="product-name"> 
-                {productInfo.name}
-            </h3>
+            <div className="cart-item-details">
+                <div className="cart-item-description">
+                    <h3 className="product-name"> {productInfo.name}</h3>
+                    <p>{`${LABEL_CART_PRODUCT_SIZE} ${productInfo.size}`}</p>
+                    <div className="modify-amount-buttons">
+                        <button onClick={handleClickMinus}><span>-</span></button>
+                        <span>{amount}</span>
+                        <button onClick={handleClickPlus}><span>+</span></button>
+                    </div>
+                    <div>
+                        <button onClick={handleClickRemove}><span>REMOVER</span></button>
+                    </div>
+                </div>
 
-            <div className="product-price">
-                <span> {productInfo.actual_price} </span>
-                <span> {`${LABEL_CART_PAYMENT_OPTIONS} R$ ${productInfo.actual_price/3}.`}</span>
-            </div>
-
-            <span>{`${LABEL_CART_PRODUCT_SIZE} ${productInfo.size}`}</span>
-
-            <div className="modify-amount-buttons">
-                <button>{"-"}</button>
-                <span>{productInfo.amt}</span>
-                <button>{"+"}</button>
+                <div className="cart-item-price">
+                    <h3> {productInfo.actual_price} </h3>
+                    <p> {productInfo.installments}</p>
+                </div>
             </div>
         </div>
     )

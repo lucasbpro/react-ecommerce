@@ -1,5 +1,9 @@
-import {UPDATE_PRODUCT_LIST, ADD_PRODUCT_TO_CART} from './actionTypes';
-
+import {UPDATE_PRODUCT_LIST, 
+        ADD_PRODUCT_TO_CART, 
+        TOGGLE_CART_VISIBILITY,
+        UPDATE_STYLE_ON_VIEW, 
+        UPDATE_SIZE_ON_VIEW,
+        UPDATE_AMOUNT_CARTITEM} from './actionTypes';
 
 export function updateProductList(productList) {
     return {
@@ -8,9 +12,37 @@ export function updateProductList(productList) {
     };
   }
 
-export function addProductToCart(product) {
+export function addItemToCart(cartItem) {
   return {
     type: ADD_PRODUCT_TO_CART,
-    payload: product
+    payload: cartItem
   };
 }
+
+export function toggleCartVisibility() {
+  return {
+    type: TOGGLE_CART_VISIBILITY
+  };
+}
+
+export function updateStyleOnView(style) {
+  return {
+    type: UPDATE_STYLE_ON_VIEW,
+    payload: style
+  };
+}
+
+export function updateSizeOnView(size) {
+  return {
+    type: UPDATE_SIZE_ON_VIEW,
+    payload: size
+  };
+}
+
+export function updateItemAmount(index,delta){
+  return {
+    type: UPDATE_AMOUNT_CARTITEM,
+    payload: {index, delta}
+  }
+}
+

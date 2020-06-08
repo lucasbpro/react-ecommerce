@@ -16,10 +16,17 @@
 .product-size-button{
     color: gray;
     border: gray 2px solid;
+    padding: 0;
     width: 40px;
     margin-right: 5px;
 }
 
 .product-size-button--selected{
+    color: gray;
+    border: gray 2px solid;
+    padding: 0;
+    width: 40px;
+    margin-right: 5px;
     background-color: black;
+    opacity: 50%;
 }

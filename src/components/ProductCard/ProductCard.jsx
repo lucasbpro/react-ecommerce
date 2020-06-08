@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {DISCCOUNT_TEXT, IMAGE_PLACEHOLDER} from '../../constants';
 import './ProductCard.scss';
 
 const ProductCard = ({productInfo}) => (
@@ -7,14 +8,14 @@ const ProductCard = ({productInfo}) => (
 
       <figure className="product-figure">
         { productInfo.on_sale ?
-          <div>{`-${productInfo.discount_percentage}`}</div>
+          <div className="disccount">{`${productInfo.discount_percentage} ${DISCCOUNT_TEXT}`}</div>
           : null
         }
 
         {productInfo.image!=="" ? 
           <img src={productInfo.image} alt={productInfo.name} />
           :
-          <img src="https://via.placeholder.com/470x594/FFFFFF/?text=Imagem+Indisponível" alt={productInfo.name} />
+          <img src={IMAGE_PLACEHOLDER} alt={productInfo.name} />
         }
       </figure>
 
@@ -24,7 +25,7 @@ const ProductCard = ({productInfo}) => (
         { productInfo.on_sale ?
             <div className="product-price">
               <span className="product-price--from"> {productInfo.regular_price} </span>
-              <span className="product-price--to"> {productInfo.actual_price} </span>
+              <span className="product-price"> {productInfo.actual_price} </span>
             </div>
          :
           <div className="product-price">

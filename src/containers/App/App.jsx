@@ -1,19 +1,26 @@
 import React from 'react';
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Routes from '../../routes';
-import Topbar from '../../components/Topbar';
-import store from "../../store";
+import Topbar from '../Topbar';
+import ShoppingCart from '../ShoppingCart';
 
 import './App.scss';
 
-const App = () => (
-  <Provider store={store}>
-    <div data-testid="app" className="app">
-        <Topbar/>
-        <Routes/>
-    </div>
-  </Provider>
-);
+const App = () => {
+
+  const visibilityCart = useSelector(store => store.visibilityCart);
+
+  return(
+      <div data-testid="app" className="app">
+        <Router>
+          <Topbar/>
+          {visibilityCart && <ShoppingCart/>}
+          <Routes/>
+        </Router>
+      </div>
+  )
+};
 
 export default App;

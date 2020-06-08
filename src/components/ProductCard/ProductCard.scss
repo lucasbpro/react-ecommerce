@@ -22,24 +22,10 @@
         width: 100%;
         height: auto;
     }
-
-    & div {
-        display: flex;
-        background-color: purple;
-        border-radius: 5%;
-        font-size: medium;
-        align-items: center;
-        justify-content: right;
-        height:auto;
-        position: relative;
-        text-align: right;
-        padding: 10px;
-        width: auto;
-    }
 }
 
 .product-name{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 } 
 
@@ -52,27 +38,22 @@
 
 .product-price--from{
     font-size: 14px;
-    font-weight: 400;
     padding: 5px;
     color: #555;
     text-decoration: line-through;
 } 
 
-.product-price--to{
-    font-size: 14px;
-    font-weight: 400;
-    padding: 5px;
-}
-
 .disccount {
-    background-color: #212529;
-    color: purple;
+    background-color: goldenrod;
+    color: black;
+    width: auto;
+    border-radius: 2rem;
     display: inline-block;
-    font-size: 1.2rem;
+    font-size: large;
     font-weight: bold;
-    padding: .2rem;
+    padding: 5px;
     position: absolute;
-    right: 0;
+    top: 20px;
+    left: 20px;
     margin: 0;
 }
-
