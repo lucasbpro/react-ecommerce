@@ -34,10 +34,6 @@ const CartItem = ({ productInfo,
                             <span>{amount}</span>
                             <button onClick={onClickPlus}><span>+</span></button>
                         </div>
-                        <div className="cart-item-remove">
-                            <RemoveItemButton onClick={onClickRemove} /> 
-                            <span>Remover item</span>
-                        </div>
                     </div>
                 }
 
@@ -45,6 +41,9 @@ const CartItem = ({ productInfo,
                     <div className="cart-item-price">
                         <h3> {productInfo.actual_price} </h3>
                         <p> {productInfo.installments}</p>
+                        <div className="cart-item-remove">
+                            <RemoveItemButton onClick={onClickRemove} /> 
+                        </div>
                     </div>
                 }
             </div>

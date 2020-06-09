@@ -14,6 +14,7 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const [productList,setProductList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // pulls data from API and updates global state
   useEffect(()=>{
@@ -22,11 +23,12 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(updateProductList(productList))
+    setIsLoading(false);
   },[dispatch, productList]);
 
   return (
     <div data-testid="home" className="home">
-      <Catalog />
+        {isLoading?  <h1>Carregando...</h1> : <Catalog />}
     </div>
   );
 };

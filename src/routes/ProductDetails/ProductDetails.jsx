@@ -33,8 +33,7 @@ const ProductDetails = () => {
     }, [dispatch, product])
 
 	return(
-		<div className="product-details-container" data-testid="product-details">
-			<div className="product-details">
+			<div className="product-details" data-testid="product-details">
                 <figure className="product-details-fig">
                     {product.image!=="" ? 
                         <img src={product.image} alt={product.name} />
@@ -58,7 +57,6 @@ const ProductDetails = () => {
                     </div>
                 </div>
 			</div>
-		</div>
 	);
 }
 

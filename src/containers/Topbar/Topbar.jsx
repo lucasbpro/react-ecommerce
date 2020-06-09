@@ -22,16 +22,13 @@ const Topbar = ()=> {
 
 	return(
 		<header data-testid="topbar" className="topbar">
-			<div className="container">
+			<div className="topbar_logo">
+				<LogoSvg alt="Logo-Fashionista"/>
+			</div>
 
-				<div className="topbar_logo">
-					<LogoSvg alt="Logo-Fashionista"/>
-				</div>
-
-				<div className="topbar_icons">
-					<SearchButton onClickSearch={onClickSearchButton}/>
-					<CartButton onClickCart={onClickCartButton}/>
-				</div>
+			<div className="topbar_icons">
+				<SearchButton onClickSearch={onClickSearchButton}/>
+				<CartButton onClickCart={onClickCartButton}/>
 			</div>
   		</header>
 	);

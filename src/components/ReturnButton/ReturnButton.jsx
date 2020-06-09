@@ -5,8 +5,7 @@ import { ReactComponent as ReturnIcon } from "../../assets/img/return_icon.svg";
 const ReturnButton = ({onClick}) => {
 
     const style = {
-        flex: 0.1,
-        width: "100%"
+        flex: 0.1
     }
 
     return(

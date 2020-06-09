@@ -30,7 +30,7 @@ const ProductSizes = ({sizes}) => {
                             if(size.size === selectedSize)
                                 return (
                                     <button key={index}
-                                            className="product-size-button--selected" 
+                                            className="product-size-button product-size-button--selected" 
                                             onClick={() => handleSelectSize(size.size)}>
                                         <span>{size.size}</span>
                                     </button>
