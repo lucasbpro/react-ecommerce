@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //import Loading from '../../components/Loading';
 
@@ -13,6 +13,7 @@ import './Home.scss';
 const Home = () => {
 
   const dispatch = useDispatch();
+  const opacityOn = useSelector(state => state.visibilitySearch || state.visibilityCart);
   const [productList,setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +29,7 @@ const Home = () => {
 
   return (
     <div data-testid="home" className="home">
-        {isLoading?  <h1>Carregando...</h1> : <Catalog />}
+        {isLoading?  <h1>Carregando...</h1> : <Catalog opacityOn={opacityOn}/>}
     </div>
   );
 };

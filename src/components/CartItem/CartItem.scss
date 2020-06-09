@@ -5,8 +5,8 @@
     margin-bottom: 2%;
     display: flex;
     flex-direction: row;
-    border: rgb(189, 4, 196) 2px solid;
-    border-radius: 0.2em;
+    border: rgb(189, 4, 196) 1px solid;
+    border-radius: 0.5em;
     box-shadow: 0 0 3px 0 rgba(248, 2, 248, 0.664);
 }
 
@@ -84,7 +84,7 @@
 .cart-item-price {
     display: flex;
     flex-direction: column;
-    float: right;
+    align-items: center;
     flex: 0.4;
 
     & h3 {

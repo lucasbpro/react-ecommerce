@@ -25,7 +25,7 @@ const ProductCard = ({productInfo}) => (
         { productInfo.on_sale ?
             <div className="product-price">
               <span className="product-price--from"> {productInfo.regular_price} </span>
-              <span className="product-price"> {productInfo.actual_price} </span>
+              <span> {productInfo.actual_price} </span>
             </div>
          :
           <div className="product-price">

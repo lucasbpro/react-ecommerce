@@ -4,13 +4,12 @@
     right: 0;
     background-color: white;
     width: 40%;
-    height:100%;
+    height: fit-content;
     z-index: 2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
 }
 
 .search-input {
-    background-color: rgb(219, 209, 209);
     padding: 5px;
 }
 
@@ -20,13 +19,10 @@
     width: 100%;
     border: 0.4em;
     border-radius: 0.2em;
-    font-weight: 600;
     height: auto;
 }
      
 .search-results {
-    border: 1pt rgb(224, 221, 221) solid;
-    border-radius: 0.5em;
-    margin-top: 2px;
+    margin-top: 5px;
     height:100%
 }

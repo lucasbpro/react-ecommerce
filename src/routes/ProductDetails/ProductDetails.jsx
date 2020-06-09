@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ProductSizes from "../../components/ProductSizes"
+import ReturnButton from '../../components/ReturnButton';
 import { addItemToCart, updateStyleOnView } from '../../actions';
 
 import { LABEL_ADD_TO_CART_BUTTON, 
@@ -20,6 +21,7 @@ const ProductDetails = () => {
                                 product => parseInt(product.style, 10) === productId) || {});
     
     const selectedSize = useSelector(store => store.currentSize);
+    const opacityOn = useSelector(state => state.visibilitySearch || state.visibilityCart);
 
     const dispatch = useDispatch();
 
@@ -33,7 +35,11 @@ const ProductDetails = () => {
     }, [dispatch, product])
 
 	return(
-			<div className="product-details" data-testid="product-details">
+        <div className="product-details-container">
+
+            <div style={ opacityOn ? { opacity: 0.4 } : null} 
+                 className="product-details" data-testid="product-details">
+
                 <figure className="product-details-fig">
                     {product.image!=="" ? 
                         <img src={product.image} alt={product.name} />
@@ -49,14 +55,17 @@ const ProductDetails = () => {
                         <ProductSizes sizes={product.sizes}/>
 
                         <div className="product-purchase">
-                            { product.on_sale && <span className="product-price--from"> {product.regular_price} </span>}
+                            { product.on_sale && 
+                                <span> {product.regular_price} </span>
+                            }
                             <h1> {product.actual_price} </h1>
-                            <p> {`${LABEL_PAYMENT_OPTIONS} ${product.installments}.`} </p>
+                            <p> {`${LABEL_PAYMENT_OPTIONS} ${product.installments}`} </p>
                             <button onClick={()=>handleAddToCart()}>{LABEL_ADD_TO_CART_BUTTON}</button>
                         </div>
                     </div>
                 </div>
 			</div>
+        </div>
 	);
 }
 

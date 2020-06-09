@@ -132,11 +132,10 @@ export function reducer(state = initialState, action) {
         let newCart = currentCart;
         let newAmount = currentCart[cartItemIndex].amount + deltaAmount;
 
-        if( newAmount === 0 && currentCart.length===1 ){
-            newCart = [];
+        if(newAmount === 0){
+            delete(currentCart[cartItemIndex]);
+            newCart = currentCart.filter( item => item!== undefined);
         }
-        else if(newAmount === 0)
-            newCart = currentCart.splice(cartItemIndex-1,1);
         else{
             let newCart= currentCart;
             newCart[cartItemIndex].amount = newAmount;

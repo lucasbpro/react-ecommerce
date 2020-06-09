@@ -38,7 +38,7 @@ const CartButton = ({onClickCart}) => {
     }, [shoppingCart]);
     
     return(
-        <button style={buttonStyle} onClick={onClickCart}> 
+        <button id="cart-button" style={buttonStyle} onClick={onClickCart}> 
             <CartIcon className="topbar_icons--cart"/> 
             { total? <span style={totalStyle}>{total}</span> : null }
         </button>

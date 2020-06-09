@@ -15,6 +15,9 @@ const ShoppingCart = () => {
 	const productInfoList = useSelector(store => store.productList).filter(
 							(product) => stylesInCart.includes(product.style)
 						);
+	const totalCartItems = shoppingCart.map(item => item.amount).reduce((a,b) => {return (a + b)});
+
+	console.log(totalCartItems);
 
 	const dispatch = useDispatch();
 
@@ -39,10 +42,12 @@ const ShoppingCart = () => {
 		dispatch(toggleShoppingCart());
 	}
 
+	//useEffect(()=>{},[])
+
 	return(
 		<div className="shopping-cart-window">
 
-			<WindowHeader title={LABEL_CART_TITLE} onClickReturn={handleClickReturn} />
+			<WindowHeader title={`${LABEL_CART_TITLE} (${totalCartItems} itens)`} onClickReturn={handleClickReturn} />
 
 			<div className="shopping-cart" data-testid="shopping-cart" >
 				{shoppingCart && shoppingCart.map( (cartItem, index)  => {
