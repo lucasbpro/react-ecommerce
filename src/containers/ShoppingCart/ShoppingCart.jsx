@@ -1,8 +1,12 @@
 import React , { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { updateItemAmount } from '../../actions';
+import WindowHeader from '../../containers/WindowHeader';
 import CartItem from "../../components/CartItem";
+import { updateItemAmount, toggleShoppingCart } from '../../actions';
+import { LABEL_CART_TITLE } from '../../constants';
+
+import './ShoppingCart.scss';
 
 const ShoppingCart = () => {
 
@@ -19,22 +23,37 @@ const ShoppingCart = () => {
 	}
 
 	const handleClickMinus = (index) => {
-		dispatch(updateItemAmount(index, -1));
+		const itemAmount = shoppingCart[index].amount;
+		if(itemAmount === 1)
+			return;
+		else
+			dispatch(updateItemAmount(index, -1));
 	}
 
-	useEffect(() => {
-	}, [shoppingCart])
+	const handleClickRemove = (index) => {
+		const itemAmount = shoppingCart[index].amount;
+		dispatch(updateItemAmount(index, -itemAmount));
+	}
+
+	const handleClickReturn = () => {
+		dispatch(toggleShoppingCart());
+	}
 
 	return(
-		<div className="shopping-cart-container">
+		<div className="shopping-cart-window">
+
+			<WindowHeader title={LABEL_CART_TITLE} onClickReturn={handleClickReturn} />
+
 			<div className="shopping-cart" data-testid="shopping-cart" >
 				{shoppingCart && shoppingCart.map( (cartItem, index)  => {
 					const productInfo = productInfoList.find(product => cartItem.style === product.style)
 					return (<CartItem key={index} 
 									productInfo={productInfo} 
+									size={cartItem.size}
 									amount={cartItem.amount}
-									handleClickPlus={()=>handleClickPlus(index)}
-									handleClickMinus={()=>handleClickMinus(index)}/>)
+									onClickPlus={()=>handleClickPlus(index)}
+									onClickMinus={()=>handleClickMinus(index)}
+									onClickRemove={()=>handleClickRemove(index)}/>)
 				})}
 			</div>
 		</div>

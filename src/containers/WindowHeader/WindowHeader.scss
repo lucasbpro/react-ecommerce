@@ -1,0 +1,20 @@
+  .window-header-container {
+    backface-visibility: hidden;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .07);
+    width: 100%;
+  }
+  
+  .window-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+  }
+
+  .window-header-title {
+    font-size: 1.4em;
+    flex: 0.9;
+    justify-items: center;
+  }

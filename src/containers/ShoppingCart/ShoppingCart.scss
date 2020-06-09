@@ -1,15 +1,16 @@
-.shopping-cart-container{
-    position: absolute;
-    background-color: black;
-    width: 100%;
-    opacity: 20%
-}
-
-.shopping-cart {
-    margin: 100px;
-    width: 30%;
+.shopping-cart-window{
     position: absolute;
     top: 0;
     right: 0;
-    display: inline-block;
+    background-color: white;
+    width: 30%;
+    height:100%;
+    z-index: 1
+}
+
+.shopping-cart {
+    border: 1pt rgb(224, 221, 221) solid;
+    border-radius: 0.5em;
+    margin-top: 2px;
+    height:100%
 }

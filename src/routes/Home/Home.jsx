@@ -26,7 +26,6 @@ const Home = () => {
 
   return (
     <div data-testid="home" className="home">
-      <ShoppingCart/>
       <Catalog />
     </div>
   );

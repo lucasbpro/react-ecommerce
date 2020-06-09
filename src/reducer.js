@@ -3,7 +3,8 @@ import {UPDATE_PRODUCT_LIST,
         TOGGLE_CART_VISIBILITY,
         UPDATE_STYLE_ON_VIEW,
         UPDATE_SIZE_ON_VIEW,
-        UPDATE_AMOUNT_CARTITEM} from './actionTypes';
+        UPDATE_AMOUNT_CARTITEM,
+        TOGGLE_SEARCH_WINDOW_VISIBILITY} from './actionTypes';
 
 const initialState = {
     productList: [
@@ -60,9 +61,13 @@ const initialState = {
                  {"available":false,"size":"GG","sku":"5793_1000032_0_GG"}]
        }
     ],
-    shoppingCart: [{style: "20002605", size: "P", amount: 2},{style: "20002570", size: "P", amount: 2}],
+    shoppingCart: [
+        {style: "20002605", size: "P", amount: 2},
+        {style: "20002570", size: "P", amount: 3}
+      ],
     currentStyle: null,
     currentSize: null,
+    visibilitySearch: false,
     visibilityCart: false
 };
 
@@ -92,7 +97,16 @@ export function reducer(state = initialState, action) {
       case TOGGLE_CART_VISIBILITY: {
         return {
             ...state,
-            visibilityCart: !state.visibilityCart
+            visibilityCart: !state.visibilityCart,
+            visibilitySearch: false
+        };
+      }
+
+      case TOGGLE_SEARCH_WINDOW_VISIBILITY: {
+        return {
+            ...state,
+            visibilitySearch: !state.visibilitySearch,
+            visibilityCart: false
         };
       }
 
@@ -118,9 +132,11 @@ export function reducer(state = initialState, action) {
         let newCart = currentCart;
         let newAmount = currentCart[cartItemIndex].amount + deltaAmount;
 
-        if(newAmount === 0){
-            newCart = currentCart.splice(cartItemIndex);
+        if( newAmount === 0 && currentCart.length===1 ){
+            newCart = [];
         }
+        else if(newAmount === 0)
+            newCart = currentCart.splice(cartItemIndex-1,1);
         else{
             let newCart= currentCart;
             newCart[cartItemIndex].amount = newAmount;

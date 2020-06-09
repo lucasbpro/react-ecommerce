@@ -1,6 +1,7 @@
 import {UPDATE_PRODUCT_LIST, 
         ADD_PRODUCT_TO_CART, 
         TOGGLE_CART_VISIBILITY,
+        TOGGLE_SEARCH_WINDOW_VISIBILITY,
         UPDATE_STYLE_ON_VIEW, 
         UPDATE_SIZE_ON_VIEW,
         UPDATE_AMOUNT_CARTITEM} from './actionTypes';
@@ -19,9 +20,15 @@ export function addItemToCart(cartItem) {
   };
 }
 
-export function toggleCartVisibility() {
+export function toggleShoppingCart() {
   return {
     type: TOGGLE_CART_VISIBILITY
+  };
+}
+
+export function toggleSearchWindow() {
+  return {
+    type: TOGGLE_SEARCH_WINDOW_VISIBILITY
   };
 }
 

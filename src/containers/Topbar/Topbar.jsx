@@ -5,7 +5,7 @@ import Link from 'react-dom';
 import { ReactComponent as LogoSvg } from "../../assets/img/logo.svg";
 import SearchButton from "../../components/SearchButton";
 import CartButton from "../../components/CartButton";
-import {toggleCartVisibility} from '../../actions';
+import {toggleShoppingCart, toggleSearchWindow} from '../../actions';
 import './Topbar.scss';
 
 const Topbar = ()=> {
@@ -13,12 +13,11 @@ const Topbar = ()=> {
 	const dispatch = useDispatch();
 
 	const onClickSearchButton = () => {
-		console.log("clicou Search Button");
+		dispatch(toggleSearchWindow());
 	};
 
 	const onClickCartButton = () => {
-		console.log("clicou Cart Button");
-		dispatch(toggleCartVisibility());
+		dispatch(toggleShoppingCart());
 	};
 
 	return(

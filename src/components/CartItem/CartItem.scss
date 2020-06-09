@@ -1,15 +1,20 @@
 
 .cart-item-container {
     display: flex;
+    height: 200px;
     flex-direction: row;
-    margin: 5px;
-    margin-bottom: 5px;
+    margin: 2%;
+    margin-bottom: 2%;
     border: gray 2px solid;
 }
 
 .cart-item-figure {
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+
     & img {
+        flex: 0.9;
         width: auto;
         height: 150px;
     }
@@ -27,7 +32,10 @@
 
     & span{
         font-size: small;
+        font-weight: bold;
         color: gray;  
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     & p {
@@ -54,8 +62,6 @@
         padding: 0;
         background-color: purple;
         border-radius: 0.5em;
-        margin-left: 10px;
-        margin-right: 10px;
 
         & span {
             font-size: 20px;
@@ -63,6 +69,10 @@
             color: white;
         }
     }
+}
+
+.cart-item-remove {
+    height: 5%;
 }
 
 .cart-item-price {

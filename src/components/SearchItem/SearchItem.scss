@@ -1,0 +1,59 @@
+
+.search-item-container {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    margin-bottom: 5px;
+    border: gray 1px solid;
+    border-radius: 0.5em
+}
+
+.search-item-figure {
+    margin: 5px;
+    & img {
+        width: auto;
+        height: 150px;
+    }
+}
+
+.search-item-details {
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    width: 100%;
+
+    & h3 {
+        font-size: 15px;
+    }
+
+    & span{
+        font-size: small;
+        color: gray;  
+    }
+
+    & p {
+        font-size: small;
+        color: gray;    
+        margin-top: 0px;    
+    }
+}
+
+.search-item-description {
+    display: flex;
+    flex: 0.6;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.search-item-price {
+    display: flex;
+    flex-direction: column;
+    flex: 0.4;
+
+    & h3 {
+        font-size: 15px;
+        margin-bottom: 5px;
+        color: purple;
+    }
+}
+
