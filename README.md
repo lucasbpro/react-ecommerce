@@ -1,6 +1,6 @@
 # react-ecommerce
 
-This is my final project of AceleraDev React Online @Codenation. This SPA (*Single Page Application*) implemented and React.js using Hooks and Redux. It is a sample of an e-commerce website which provides the following functionalities:
+This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/). This SPA (*Single Page Application*) implemented and React.js using Hooks and Redux. It is a sample of an e-commerce website which provides the following functionalities:
 
 - It is *mobile-first* but also works in desktop;
 - presents a catalog of products in the online store, which includes their description, price, available sizes and picture;
