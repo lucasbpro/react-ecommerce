@@ -1,12 +1,11 @@
 .product {
     overflow: hidden;
     padding: 0px;
-    width: 400px;
+    width: 200px;
     text-align: center;
     margin-bottom: 5px;
     margin-right: 5px;
     border: 1px solid purple;
-    border-radius: 5%;
     box-shadow: 0px 1px 3px 0px rgba(248, 2, 248, 0.664);
 }
   
@@ -25,7 +24,7 @@
 }
 
 .product-name{
-    font-size: 15px;
+    font-size: 10px;
     font-weight: bold;
 } 
 
@@ -49,16 +48,16 @@
 } 
 
 .disccount {
+    display: inline-block;
     background-color: goldenrod;
     color: black;
     width: auto;
     border-radius: 2rem;
-    display: inline-block;
-    font-size: large;
+    font-size: small;
     font-weight: bold;
-    padding: 5px;
+    padding: 3%;
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 5%;
+    left: 5%;
     margin: 0;
 }
