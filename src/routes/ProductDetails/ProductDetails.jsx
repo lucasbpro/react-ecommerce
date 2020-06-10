@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ProductSizes from "../../components/ProductSizes"
-import ReturnButton from '../../components/ReturnButton';
+//import ReturnButton from '../../components/ReturnButton';
 import { addItemToCart, updateStyleOnView } from '../../actions';
 
 import { LABEL_ADD_TO_CART_BUTTON, 

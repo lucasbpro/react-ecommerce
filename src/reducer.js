@@ -7,67 +7,10 @@ import {UPDATE_PRODUCT_LIST,
         TOGGLE_SEARCH_WINDOW_VISIBILITY} from './actionTypes';
 
 const initialState = {
-    productList: [
-
-        {"name":"VESTIDO TRANSPASSE BOW",
-        "style":"20002605","code_color":"20002605_613",
-        "color_slug":"tapecaria",
-        "color":"TAPEÇARIA",
-        "on_sale":false,
-        "regular_price":"R$ 199,90",
-        "actual_price":	"R$ 199,90",
-        "discount_percentage":"",
-        "installments":"3x R$ 66,63",
-        "image":"",
-        "sizes":[{"available":false,"size":"PP","sku":"5807_343_0_PP"},
-                {"available":true,"size":"P","sku":"5807_343_0_P"},
-                {"available":true,"size":"M","sku":"5807_343_0_M"},
-                {"available":true,"size":"G","sku":"5807_343_0_G"},
-                {"available":false,"size":"GG","sku":"5807_343_0_GG"}]
-        },
-        
-        {"name":"REGATA ALCINHA FOLK","style":"20002570",
-         "code_color":"20002570_614",
-         "color_slug":"preto",
-         "color":"PRETO",
-         "on_sale":false,
-         "regular_price":"R$ 99,90",
-         "actual_price":"R$ 99,90",
-         "discount_percentage":"",
-         "installments":"3x R$ 33,30",
-         "image":"",
-         "sizes":[{"available":true,"size":"PP","sku":"5723_40130843_0_PP"},
-                  {"available":true,"size":"P","sku":"5723_40130843_0_P"},
-                  {"available":true,"size":"M","sku":"5723_40130843_0_M"},
-                  {"available":true,"size":"G","sku":"5723_40130843_0_G"},
-                  {"available":true,"size":"GG","sku":"5723_40130843_0_GG"}]
-        },
-
-        {"name":"T-SHIRT LEATHER DULL",
-        "style":"20002602",
-        "code_color":"20002602_027",
-        "color_slug":"marinho",
-        "color":"MARINHO",
-        "on_sale":true,
-        "regular_price":"R$ 139,90",
-        "actual_price":"R$ 119,90",
-        "discount_percentage":"12%",
-        "installments":"3x R$ 39,97",
-        "image":"",
-        "sizes":[{"available":true,"size":"PP","sku":"5793_1000032_0_PP"},
-                 {"available":true,"size":"P","sku":"5793_1000032_0_P"},
-                 {"available":true,"size":"M","sku":"5793_1000032_0_M"},
-                 {"available":false,"size":"G","sku":"5793_1000032_0_G"},
-                 {"available":false,"size":"GG","sku":"5793_1000032_0_GG"}]
-       }
-    ],
-    shoppingCart: [
-        {style: "20002605", size: "P", amount: 2},
-        {style: "20002570", size: "P", amount: 3}
-      ],
+    productList: [],
+    shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || [],
     currentStyle: null,
     currentSize: null,
-    flagCartHasChanged: false, 
     isSearchOpen: false,
     isCartOpen: false
 };
@@ -89,12 +32,17 @@ export function reducer(state = initialState, action) {
             if ( currentCart[i].style === newItem.style && currentCart[i].size === newItem.size){
               let newCart = currentCart;
               newCart[i].amount = newCart[i].amount+1;
-              return {...state,  shoppingCart: newCart};
+              localStorage.setItem("shoppingCart", JSON.stringify(newCart));
+              return {...state,  
+                      shoppingCart: newCart};
             }
         }
+
+        const newCart = [...currentCart, {...newItem, amount: 1}];
+        localStorage.setItem("shoppingCart", JSON.stringify(newCart));
+
         return {...state,  
-                shoppingCart: [...currentCart, {...newItem, amount: 1}],
-                flagCartHasChanged: true
+                shoppingCart: newCart
               };
       }
 
@@ -145,10 +93,10 @@ export function reducer(state = initialState, action) {
             newCart[cartItemIndex].amount = newAmount;
         }
             
+        localStorage.setItem("shoppingCart", JSON.stringify(newCart));
         return {
           ...state,
-          shoppingCart: newCart,
-          flagCartHasChanged: true
+          shoppingCart: newCart
         };
       }
 
