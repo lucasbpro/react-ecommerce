@@ -1,12 +1,8 @@
-import React, { useState, useEffect} from 'react';
-import { useSelector } from "react-redux";
+import React from 'react';
 
 import { ReactComponent as CartIcon } from "../../assets/img/cart.svg";
 
-const CartButton = ({onClickCart}) => {
-
-    const shoppingCart = useSelector(store => store.shoppingCart);
-    const [total, setTotal] = useState(0);
+const CartButton = ({onClickCart, totalItems}) => {
 
     const totalStyle = {
         color: "white",
@@ -27,20 +23,11 @@ const CartButton = ({onClickCart}) => {
     const buttonStyle = {
         width: "50px"
       };
-
-    useEffect(() => {
-        if( shoppingCart.length === 0)
-            setTotal(0);
-        else{
-            const amountList = shoppingCart.map(item => item.amount);
-            setTotal(amountList.reduce((a,b) => {return (a + b)}));
-        }
-    }, [shoppingCart]);
     
     return(
         <button id="cart-button" style={buttonStyle} onClick={onClickCart}> 
             <CartIcon className="topbar_icons--cart"/> 
-            { total? <span style={totalStyle}>{total}</span> : null }
+            { totalItems? <span style={totalStyle}>{totalItems}</span> : null }
         </button>
     )
 }

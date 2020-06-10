@@ -16,10 +16,11 @@ const CartItem = ({ productInfo,
     return(
         <div className="cart-item-container">
             <figure className="cart-item-figure">
-                {productInfo? productInfo.image!=="" ? 
+                {productInfo? 
+                    (productInfo.image!=="" ? 
                         <img src={productInfo.image} alt={productInfo.name} />
                         :
-                        <img src={IMAGE_PLACEHOLDER} alt={productInfo.name} />
+                        <img src={IMAGE_PLACEHOLDER} alt={productInfo.name} />)
                     : null
                 }
             </figure>

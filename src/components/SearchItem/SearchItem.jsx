@@ -8,11 +8,10 @@ const SearchItem = ({itemName, itemPicture, itemPrice, itemInstallments}) => {
     return(
         <div className="search-item-container">
             <figure className="search-item-figure">
-                {itemPicture? itemPicture!=="" ? 
-                        <img src={itemPicture} alt={itemName} />
-                        :
-                        <img src={IMAGE_PLACEHOLDER} alt={itemName} />
-                    : null
+                {itemPicture? 
+                    <img src={itemPicture} alt={itemName} />
+                    :
+                    <img src={IMAGE_PLACEHOLDER} alt={itemName} />
                 }
             </figure>
 
