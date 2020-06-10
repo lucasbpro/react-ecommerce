@@ -22,3 +22,6 @@ Start the development server:
 $ npm start
 ```
 This application will start at [http://localhost:3000](http://localhost/:3000).
+
+## Requirements:
+* **[Node v13.8.0](https://nodejs.org/en/)** or later.
