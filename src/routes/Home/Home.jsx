@@ -5,15 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {URL_API} from "../../constants";
 import Catalog from "../../containers/Catalog";
-import ShoppingCart from "../../containers/ShoppingCart";
-import SearchWindow from '../../containers/SearchWindow/SearchWindow';
 import {updateProductList} from '../../actions';
 import './Home.scss';
 
 const Home = () => {
 
   const dispatch = useDispatch();
-  const opacityOn = useSelector(state => state.visibilitySearch || state.visibilityCart);
+  const opacityOn = useSelector(state => state.isSearchOpen || state.isCartOpen);
   const [productList,setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 

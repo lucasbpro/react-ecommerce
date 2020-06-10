@@ -1,8 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Link from 'react-dom';
 
-import { ReactComponent as LogoSvg } from "../../assets/img/logo.svg";
+import { ReactComponent as LogoSite } from "../../assets/img/logo_fashionista.svg";
 import SearchButton from "../../components/SearchButton";
 import CartButton from "../../components/CartButton";
 import {toggleShoppingCart, toggleSearchWindow} from '../../actions';
@@ -11,6 +10,7 @@ import './Topbar.scss';
 const Topbar = ()=> {
 
 	const shoppingCart = useSelector(store => store.shoppingCart);
+	const isCartOpen = useSelector(store => store.isCartOpen);
 	const [totalItems, setTotal] = useState(0);
 
 	const dispatch = useDispatch();
@@ -31,13 +31,13 @@ const Topbar = ()=> {
             const amountList = shoppingCart.map(item => item.amount);
             setTotal(amountList.reduce((a,b) => {return (a + b)}));
         }
-	}, [shoppingCart]);
+	}, [shoppingCart,isCartOpen]);
 
 
 	return(
 		<header data-testid="topbar" className="topbar">
 			<div className="topbar_logo">
-				<LogoSvg alt="Logo-Fashionista"/>
+				<a href="/"> <LogoSite alt="Logo-Fashionista"/> </a>
 			</div>
 
 			<div className="topbar_icons">

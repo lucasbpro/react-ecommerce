@@ -21,7 +21,7 @@ const ProductDetails = () => {
                                 product => parseInt(product.style, 10) === productId) || {});
     
     const selectedSize = useSelector(store => store.currentSize);
-    const opacityOn = useSelector(state => state.visibilitySearch || state.visibilityCart);
+    const opacityOn = useSelector(state => state.isSearchOpen || state.isCartOpen);
 
     const dispatch = useDispatch();
 

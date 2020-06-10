@@ -11,15 +11,15 @@ import './App.scss';
 
 const App = () => {
 
-  const visibilityCart = useSelector(store => store.visibilityCart);
-  const visibilitySearch = useSelector(store => store.visibilitySearch);
+  const isCartOpen = useSelector(store => store.isCartOpen);
+  const isSearchOpen = useSelector(store => store.isSearchOpen);
 
   return(
       <div data-testid="app" className="app">
         <Router>
           <Topbar/>
-          {visibilityCart && <ShoppingCart/>}
-          {visibilitySearch && <SearchWindow/>}
+          {isCartOpen && <ShoppingCart/>}
+          {isSearchOpen && <SearchWindow/>}
           <Routes/>
         </Router>
       </div>

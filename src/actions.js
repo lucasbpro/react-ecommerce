@@ -4,7 +4,7 @@ import {UPDATE_PRODUCT_LIST,
         TOGGLE_SEARCH_WINDOW_VISIBILITY,
         UPDATE_STYLE_ON_VIEW, 
         UPDATE_SIZE_ON_VIEW,
-        UPDATE_AMOUNT_CARTITEM} from './actionTypes';
+        UPDATE_AMOUNT_CARTITEM } from './actionTypes';
 
 export function updateProductList(productList) {
     return {
@@ -52,4 +52,3 @@ export function updateItemAmount(index,delta){
     payload: {index, delta}
   }
 }
-

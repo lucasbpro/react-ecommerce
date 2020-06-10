@@ -5,23 +5,21 @@ import { ReactComponent as CartIcon } from "../../assets/img/cart.svg";
 const CartButton = ({onClickCart, totalItems}) => {
 
     const totalStyle = {
-        color: "white",
+        color: "black",
         display: "flex",
-        alignItems: "center",
-        paddingLeft: "2pt",
         fontWeight: "bold",
-        fontSize: "15px",
         backgroundColor: "red",
-        height: "15px",
-        width: "15px",
+        width: "auto",
+        fontSize: "20px",
         borderRadius: "100%",
         position: "absolute",
-        top: 0,
-        right: 0
+        top: "5%",
+        right: "3%",
+        zIndex: "2"
       };
     
     const buttonStyle = {
-        width: "50px"
+        marginLeft: "10px"
       };
     
     return(

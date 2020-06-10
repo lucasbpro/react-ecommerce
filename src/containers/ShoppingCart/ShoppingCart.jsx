@@ -1,9 +1,9 @@
-import React , { useEffect } from "react";
+import React , { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import WindowHeader from '../../containers/WindowHeader';
 import CartItem from "../../components/CartItem";
-import { updateItemAmount, toggleShoppingCart } from '../../actions';
+import { updateItemAmount, toggleShoppingCart} from '../../actions';
 import { LABEL_CART_TITLE, 
 		 EMPTY_CART, 
 		 LABEL_TOTAL_ORDER,
@@ -14,7 +14,9 @@ import './ShoppingCart.scss';
 const ShoppingCart = () => {
 
 	const shoppingCart = useSelector(state => state.shoppingCart);
+
 	const stylesInCart = shoppingCart.map( cartItem => cartItem.style );
+
 	const productInfoList = useSelector(store => store.productList).filter(
 							(product) => stylesInCart.includes(product.style)
 						);
@@ -26,8 +28,11 @@ const ShoppingCart = () => {
 	
 	const totalOrder = productInfoList.length===0 ? 
 							0 : productInfoList.map(item => {
-									return parseFloat(item.actual_price.split(',').join('.').split("R$")[1])
+								return parseFloat(item.actual_price.split(',').join('.').split("R$")[1])
+								}).map( (itemPrice, index) => {
+									return shoppingCart[index]? itemPrice*shoppingCart[index].amount : 0
 								}).reduce(sum);
+				
 	const formatter = new Intl.NumberFormat('pt-BR', {
 		style: 'currency',
 		currency: 'BRL',
@@ -35,28 +40,36 @@ const ShoppingCart = () => {
 
 	const dispatch = useDispatch();
 
+	const [clickEvent, setClickEvent] = useState(false);
+
 	const handleClickPlus = (index) => {
 		dispatch(updateItemAmount(index, 1));
+		setClickEvent(true);
 	}
 
 	const handleClickMinus = (index) => {
 		const itemAmount = shoppingCart[index].amount;
 		if(itemAmount === 1)
 			return;
-		else
+		else{
 			dispatch(updateItemAmount(index, -1));
+			setClickEvent(true);
+		}
 	}
 
 	const handleClickRemove = (index) => {
 		const itemAmount = shoppingCart[index].amount;
 		dispatch(updateItemAmount(index, -itemAmount));
+		setClickEvent(true);
 	}
 
 	const handleClickReturn = () => {
 		dispatch(toggleShoppingCart());
 	}
 
-	//useEffect(()=>{},[])
+	useEffect(()=>{ 
+		setClickEvent(false);
+	},[shoppingCart, clickEvent])
 
 	return(
 		<div className="shopping-cart-window">
@@ -78,14 +91,15 @@ const ShoppingCart = () => {
 									onClickRemove={()=>handleClickRemove(index)}/>)
 				})}
 
-				<div className="close-order">
-					<div className="total-order">
-						<h2>{LABEL_TOTAL_ORDER}</h2>
-						<h1>{formatter.format(totalOrder)}</h1>
+				{totalCartItems>0 &&
+					<div className="close-order">
+						<div className="total-order">
+							<h2>{LABEL_TOTAL_ORDER}</h2>
+							<h1>{formatter.format(totalOrder)}</h1>
+						</div>
+						<button >{LABEL_CLOSE_ORDER_BUTTON}</button>
 					</div>
-					<button >{LABEL_CLOSE_ORDER_BUTTON}</button>
-                </div>
-
+				}
 			</div>
 		</div>
 	);

@@ -67,8 +67,9 @@ const initialState = {
       ],
     currentStyle: null,
     currentSize: null,
-    visibilitySearch: false,
-    visibilityCart: false
+    flagCartHasChanged: false, 
+    isSearchOpen: false,
+    isCartOpen: false
 };
 
 export function reducer(state = initialState, action) {
@@ -91,22 +92,25 @@ export function reducer(state = initialState, action) {
               return {...state,  shoppingCart: newCart};
             }
         }
-        return {...state,  shoppingCart: [...currentCart, {...newItem, amount: 1}]};
+        return {...state,  
+                shoppingCart: [...currentCart, {...newItem, amount: 1}],
+                flagCartHasChanged: true
+              };
       }
 
       case TOGGLE_CART_VISIBILITY: {
         return {
             ...state,
-            visibilityCart: !state.visibilityCart,
-            visibilitySearch: false
+            isCartOpen: !state.isCartOpen,
+            isSearchOpen: false
         };
       }
 
       case TOGGLE_SEARCH_WINDOW_VISIBILITY: {
         return {
             ...state,
-            visibilitySearch: !state.visibilitySearch,
-            visibilityCart: false
+            isSearchOpen: !state.isSearchOpen,
+            isCartOpen: false
         };
       }
 
@@ -143,7 +147,8 @@ export function reducer(state = initialState, action) {
             
         return {
           ...state,
-          shoppingCart: newCart
+          shoppingCart: newCart,
+          flagCartHasChanged: true
         };
       }
 
