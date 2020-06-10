@@ -4,7 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 import WindowHeader from '../../containers/WindowHeader';
 import CartItem from "../../components/CartItem";
 import { updateItemAmount, toggleShoppingCart } from '../../actions';
-import { LABEL_CART_TITLE, EMPTY_CART } from '../../constants';
+import { LABEL_CART_TITLE, 
+		 EMPTY_CART, 
+		 LABEL_TOTAL_ORDER,
+		 LABEL_CLOSE_ORDER_BUTTON} from '../../constants';
 
 import './ShoppingCart.scss';
 
@@ -16,8 +19,19 @@ const ShoppingCart = () => {
 							(product) => stylesInCart.includes(product.style)
 						);
 
+	const sum = (a,b) => {return (a + b)};
+
 	const totalCartItems = shoppingCart.length===0 ? 
-						   0 : shoppingCart.map(item => item.amount).reduce((a,b) => {return (a + b)});
+						   0 : shoppingCart.map(item => item.amount).reduce(sum);
+	
+	const totalOrder = productInfoList.length===0 ? 
+							0 : productInfoList.map(item => {
+									return parseFloat(item.actual_price.split(',').join('.').split("R$")[1])
+								}).reduce(sum);
+	const formatter = new Intl.NumberFormat('pt-BR', {
+		style: 'currency',
+		currency: 'BRL',
+	  });
 
 	const dispatch = useDispatch();
 
@@ -63,6 +77,15 @@ const ShoppingCart = () => {
 									onClickMinus={()=>handleClickMinus(index)}
 									onClickRemove={()=>handleClickRemove(index)}/>)
 				})}
+
+				<div className="close-order">
+					<div className="total-order">
+						<h2>{LABEL_TOTAL_ORDER}</h2>
+						<h1>{formatter.format(totalOrder)}</h1>
+					</div>
+					<button >{LABEL_CLOSE_ORDER_BUTTON}</button>
+                </div>
+
 			</div>
 		</div>
 	);

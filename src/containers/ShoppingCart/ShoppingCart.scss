@@ -3,7 +3,7 @@
     top: 0;
     right: 0;
     background-color: white;
-    width: 40%;
+    width: 70%;
     height: fit-content;
     z-index: 2;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
@@ -15,5 +15,32 @@
 
     & h2{
         margin: 15px;
+    }
+}
+
+.close-order {
+    margin: 2%;
+    
+    & button{
+        font-size: medium;
+        background-color: purple;
+        color: white;
+        width: 100%;
+    }
+}
+
+.total-order {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0 5px 0;
+    align-items: flex-end;
+    justify-content: center;
+
+    & h2{
+        margin: 0 5px 0 0;
+    }
+
+    & h1{
+        margin: 0;
     }
 }

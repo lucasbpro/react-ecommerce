@@ -14,6 +14,8 @@ const LABEL_CART_TITLE = "Seu carrinho de compras";
 const EMPTY_CART = "Seu carrinho está vazio :/";
 const LABEL_CART_PRODUCT_SIZE = "Tam.:";
 const LABEL_CART_REMOVE_PRODUCT = "Remover item";
+const LABEL_TOTAL_ORDER = "Total:";
+const LABEL_CLOSE_ORDER_BUTTON = "Fechar Pedido";
 
 // Labes from ProductDetails page
 const LABEL_PRODUCT_SIZES = "Escolha um tamanho";
@@ -35,6 +37,8 @@ export{
     LABEL_PRODUCT_SIZES,
     LABEL_PAYMENT_OPTIONS,
     LABEL_ADD_TO_CART_BUTTON,
+    LABEL_TOTAL_ORDER,
+    LABEL_CLOSE_ORDER_BUTTON,
     DISCCOUNT_TEXT,
     IMAGE_PLACEHOLDER,
     SEARCH_WINDOW_TITLE,

@@ -21,18 +21,16 @@ const ProductCard = ({productInfo}) => (
 
       <span className="product-name"> {productInfo.name} </span>
 
-      <div className="product-price">
-        { productInfo.on_sale ?
-            <div className="product-price">
-              <span className="product-price--from"> {productInfo.regular_price} </span>
-              <span> {productInfo.actual_price} </span>
-            </div>
-         :
+      { productInfo.on_sale ?
           <div className="product-price">
-            <span> {productInfo.regular_price} </span>
+            <span className="product-price--from"> {productInfo.regular_price} </span>
+            <span> {productInfo.actual_price} </span>
           </div>
-        }
-      </div>
+        :
+        <div className="product-price">
+          <span> {productInfo.regular_price} </span>
+        </div>
+      }
     </div>
 );
 
