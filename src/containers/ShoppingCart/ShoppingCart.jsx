@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import WindowHeader from '../../containers/WindowHeader';
 import CartItem from "../../components/CartItem";
 import { updateItemAmount, toggleShoppingCart } from '../../actions';
-import { LABEL_CART_TITLE } from '../../constants';
+import { LABEL_CART_TITLE, EMPTY_CART } from '../../constants';
 
 import './ShoppingCart.scss';
 
@@ -15,9 +15,9 @@ const ShoppingCart = () => {
 	const productInfoList = useSelector(store => store.productList).filter(
 							(product) => stylesInCart.includes(product.style)
 						);
-	const totalCartItems = shoppingCart.map(item => item.amount).reduce((a,b) => {return (a + b)});
 
-	console.log(totalCartItems);
+	const totalCartItems = shoppingCart.length===0 ? 
+						   0 : shoppingCart.map(item => item.amount).reduce((a,b) => {return (a + b)});
 
 	const dispatch = useDispatch();
 
@@ -50,6 +50,9 @@ const ShoppingCart = () => {
 			<WindowHeader title={`${LABEL_CART_TITLE} (${totalCartItems} itens)`} onClickReturn={handleClickReturn} />
 
 			<div className="shopping-cart" data-testid="shopping-cart" >
+
+				{totalCartItems===0 && <h2>{EMPTY_CART}</h2>}
+
 				{shoppingCart && shoppingCart.map( (cartItem, index)  => {
 					const productInfo = productInfoList.find(product => cartItem.style === product.style)
 					return (<CartItem key={index} 

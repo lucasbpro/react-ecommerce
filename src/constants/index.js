@@ -11,6 +11,7 @@ const IMAGE_PLACEHOLDER = "https://via.placeholder.com/470x594/FFFFFF/?text=Imag
 
 // Labes related to ShoppingCart container
 const LABEL_CART_TITLE = "Seu carrinho de compras";
+const EMPTY_CART = "Seu carrinho está vazio :/";
 const LABEL_CART_PRODUCT_SIZE = "Tam.:";
 const LABEL_CART_REMOVE_PRODUCT = "Remover item";
 
@@ -28,6 +29,7 @@ const NO_SEARCH_RESULTS = "Nenhum resultado encontrado";
 export{
     URL_API,
     LABEL_CART_TITLE,
+    EMPTY_CART,
     LABEL_CART_PRODUCT_SIZE,
     LABEL_CART_REMOVE_PRODUCT,
     LABEL_PRODUCT_SIZES,
