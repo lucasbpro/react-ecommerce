@@ -1,18 +1,20 @@
 .product-details {
-    margin: 10px 20px 10px 20px;
-    padding: 5px;
-    height: 90%;
+    margin: 2%;
+    padding: 1px;
+    height: 100%;
     border-radius: 0.5em;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     border: purple 2px solid;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
 }
 
 .product-details-fig {
     background-color: white;
     margin: 0;
+    width: 50%;
     height: auto;
     overflow: hidden;
     position: relative;
@@ -24,23 +26,20 @@
 }
 
 .product-details-content{
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
 
-    * h1 {
-        margin: 0;
-    }
-
     & h2 {
-        font-size: 25px;
+        margin: 0;
+        font-size: 20px;
     } 
 }
 
 .product-details-text{
-    padding-left: 50px;
+    padding-left: 5%;
 
     & h1{
-        font-size: 40px;
+        font-size: 30px;
         color: purple;
         margin-bottom: 0;
     }
@@ -57,13 +56,13 @@
     flex-direction: column;
     justify-content: left;
     flex-wrap: wrap;
-    margin-top: 10%;
+    margin-top: 5%;
 
     & button{
-        font-size: medium;
+        font-size: 15px;
         background-color: purple;
         color: white;
-        border-radius: 5pt;
+        border-radius: 1em;
         width: 100%;
     }
 

@@ -18,7 +18,8 @@ const LABEL_TOTAL_ORDER = "Total:";
 const LABEL_CLOSE_ORDER_BUTTON = "Fechar Pedido";
 
 // Labes from ProductDetails page
-const LABEL_PRODUCT_SIZES = "Escolha um tamanho";
+const PRODUCT_DETAILS_TITLE = "Escolha uma peça"
+const LABEL_PRODUCT_SIZES = "Selecione um tamanho";
 const LABEL_PAYMENT_OPTIONS = "Em até";
 const LABEL_ADD_TO_CART_BUTTON = "Adicionar à sacola";
 const DISCCOUNT_TEXT = "de desconto";
@@ -34,6 +35,7 @@ export{
     EMPTY_CART,
     LABEL_CART_PRODUCT_SIZE,
     LABEL_CART_REMOVE_PRODUCT,
+    PRODUCT_DETAILS_TITLE,
     LABEL_PRODUCT_SIZES,
     LABEL_PAYMENT_OPTIONS,
     LABEL_ADD_TO_CART_BUTTON,

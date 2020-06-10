@@ -49,8 +49,9 @@ const SearchWindow = () => {
 
 			<div className="search-results">
 				{filteredProducts?
-					filteredProducts.map( (product) => 
-						<SearchItem itemName={product.name} 
+					filteredProducts.map( (product,index) => 
+						<SearchItem key={index}
+									itemName={product.name} 
 									itemPicture={product.image} 
 									itemPrice={product.actual_price}
 									itemInstallments={product.installments} />

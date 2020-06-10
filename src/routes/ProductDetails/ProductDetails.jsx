@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import ProductSizes from "../../components/ProductSizes"
+import ProductSizes from '../../components/ProductSizes';
+import WindowHeader from '../../containers/WindowHeader';
 //import ReturnButton from '../../components/ReturnButton';
 import { addItemToCart, updateStyleOnView } from '../../actions';
 
-import { LABEL_ADD_TO_CART_BUTTON, 
+import {PRODUCT_DETAILS_TITLE,
+        LABEL_ADD_TO_CART_BUTTON, 
         LABEL_PAYMENT_OPTIONS,
         IMAGE_PLACEHOLDER } from "../../constants";
 
@@ -23,6 +25,8 @@ const ProductDetails = () => {
     const selectedSize = useSelector(store => store.currentSize);
     const opacityOn = useSelector(state => state.isSearchOpen || state.isCartOpen);
 
+    const [redirect,setRedirect] = useState(false);
+
     const dispatch = useDispatch();
 
     const handleAddToCart = () => {
@@ -30,15 +34,25 @@ const ProductDetails = () => {
         dispatch(addItemToCart(cartItem))
     };
 
+    const handleClickReturn = () => {
+        console.log("redirect");
+        setRedirect(true);
+    };
+
     useEffect(() => {
         dispatch(updateStyleOnView(product.style));
     }, [dispatch, product])
 
-	return(
+    if (redirect) {
+        console.log(redirect)
+        return <Redirect to="/"/>
+    }
+    else return ( 
         <div className="product-details-container">
+            <WindowHeader title={PRODUCT_DETAILS_TITLE} onClickReturn={handleClickReturn}/>
 
             <div style={ opacityOn ? { opacity: 0.4 } : null} 
-                 className="product-details" data-testid="product-details">
+                className="product-details" data-testid="product-details">
 
                 <figure className="product-details-fig">
                     {product.image!=="" ? 
@@ -64,9 +78,9 @@ const ProductDetails = () => {
                         </div>
                     </div>
                 </div>
-			</div>
+            </div>
         </div>
-	);
+    );
 }
 
 export default ProductDetails;
