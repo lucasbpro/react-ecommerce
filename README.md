@@ -9,20 +9,20 @@ This is my final project of AceleraDev React Online @[Codenation](https://www.co
 
 The application is running online [here](https://fashionista-outfit.netlify.app/).
 
-## How to run this project
+## How to run this locally
 
-- Requirements: **[Node v13.8.0](https://nodejs.org/en/)** or later.
+You need to have **[Node v13.8.0](https://nodejs.org/en/)** (or later) installed in your machine.
 
-Open this project directory in a terminal and install all the dependencies:
+Then, open this project directory in a terminal and install all the dependencies:
 
 ```shell
 $ npm install
 ```
-Start the development server:
+And start the development server:
 
 ```shell
 $ npm start
 ```
-This application will start at [http://localhost:3000](http://localhost/:3000).
+The application will start at [http://localhost:3000](http://localhost/:3000).
 
 
