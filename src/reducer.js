@@ -6,9 +6,12 @@ import {UPDATE_PRODUCT_LIST,
         UPDATE_AMOUNT_CARTITEM,
         TOGGLE_SEARCH_WINDOW_VISIBILITY} from './actionTypes';
 
+const sum = (a,b) => {return (a + b)};
+  
 const initialState = {
     productList: [],
     shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || [],
+    totalItemsInCart: JSON.parse(localStorage.getItem("shoppingCart")).map(item => item.amount).reduce(sum,0),
     currentStyle: null,
     currentSize: null,
     isSearchOpen: false,
@@ -34,15 +37,18 @@ export function reducer(state = initialState, action) {
               newCart[i].amount = newCart[i].amount+1;
               localStorage.setItem("shoppingCart", JSON.stringify(newCart));
               return {...state,  
-                      shoppingCart: newCart};
+                      shoppingCart: newCart,
+                      totalItemsInCart: state.totalItemsInCart+1};
             }
         }
 
-        const newCart = [...currentCart, {...newItem, amount: 1}];
+        const newCart = [...currentCart, 
+                        {...newItem, amount: 1}];
         localStorage.setItem("shoppingCart", JSON.stringify(newCart));
 
         return {...state,  
-                shoppingCart: newCart
+                shoppingCart: newCart,
+                totalItemsInCart: state.totalItemsInCart+1
               };
       }
 
@@ -96,7 +102,8 @@ export function reducer(state = initialState, action) {
         localStorage.setItem("shoppingCart", JSON.stringify(newCart));
         return {
           ...state,
-          shoppingCart: newCart
+          shoppingCart: newCart,
+          totalItemsInCart: state.totalItemsInCart+deltaAmount
         };
       }
 

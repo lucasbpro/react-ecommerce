@@ -15,6 +15,8 @@ const ShoppingCart = () => {
 
 	const shoppingCart = useSelector(state => state.shoppingCart);
 
+	const totalCartItems = useSelector(state => state.totalItemsInCart);
+
 	const stylesInCart = shoppingCart.map( cartItem => cartItem.style );
 
 	const productInfoList = useSelector(store => store.productList).filter(
@@ -23,8 +25,8 @@ const ShoppingCart = () => {
 
 	const sum = (a,b) => {return (a + b)};
 
-	const totalCartItems = shoppingCart.length===0 ? 
-						   0 : shoppingCart.map(item => item.amount).reduce(sum);
+	//const totalCartItems = shoppingCart.length===0 ? 
+	//					   0 : shoppingCart.map(item => item.amount).reduce(sum);
 	
 	const totalOrder = productInfoList.length===0 ? 
 							0 : productInfoList.map(item => {

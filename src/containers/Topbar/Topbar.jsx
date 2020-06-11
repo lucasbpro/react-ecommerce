@@ -11,7 +11,7 @@ const Topbar = ()=> {
 
 	const shoppingCart = useSelector(store => store.shoppingCart);
 	const isCartOpen = useSelector(store => store.isCartOpen);
-	const [totalItems, setTotal] = useState(0);
+	const totalCartItems = useSelector(state => state.totalItemsInCart);
 
 	const dispatch = useDispatch();
 
@@ -23,16 +23,9 @@ const Topbar = ()=> {
 		dispatch(toggleShoppingCart());
 	};
 	
-
 	useEffect(() => {
-        if( shoppingCart.length === 0)
-            setTotal(0);
-        else{
-            const amountList = shoppingCart.map(item => item.amount);
-            setTotal(amountList.reduce((a,b) => {return (a + b)}));
-        }
-	}, [shoppingCart,isCartOpen]);
-
+        return
+	}, [shoppingCart,isCartOpen, totalCartItems]);
 
 	return(
 		<header data-testid="topbar" className="topbar">
@@ -42,7 +35,7 @@ const Topbar = ()=> {
 
 			<div className="topbar_icons">
 				<SearchButton onClickSearch={onClickSearchButton}/>
-				<CartButton onClickCart={onClickCartButton} totalItems={totalItems}/>
+				<CartButton onClickCart={onClickCartButton} totalItems={totalCartItems}/>
 			</div>
   		</header>
 	);
