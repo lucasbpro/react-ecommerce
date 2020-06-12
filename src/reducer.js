@@ -6,12 +6,10 @@ import {UPDATE_PRODUCT_LIST,
         UPDATE_AMOUNT_CARTITEM,
         TOGGLE_SEARCH_WINDOW_VISIBILITY} from './actionTypes';
 
-const sum = (a,b) => {return (a + b)};
-  
 const initialState = {
     productList: [],
     shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || [],
-    totalItemsInCart: JSON.parse(localStorage.getItem("shoppingCart")).map(item => item.amount).reduce(sum,0),
+    totalItemsInCart: 0,
     currentStyle: null,
     currentSize: null,
     isSearchOpen: false,
