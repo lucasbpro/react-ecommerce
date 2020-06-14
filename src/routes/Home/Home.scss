@@ -1,13 +1,10 @@
-.feed {
+.home {
   display: flex;
-  flex-direction: column;
-  padding: 16px;
-  position: relative;
-  width: 100%;
+  justify-content: center;
 }
 
-@media screen and (min-width: 728px) {
-  .feed {
-    padding: 16px 0;
-  }
+.loading {
+  margin-top: 50px;
+  font-size: 24px;
+  color: #202020;
 }

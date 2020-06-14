@@ -9,7 +9,7 @@ import {UPDATE_PRODUCT_LIST,
 const initialState = {
     productList: [],
     shoppingCart: JSON.parse(localStorage.getItem("shoppingCart")) || [],
-    totalItemsInCart: 0,
+    totalItemsInCart: JSON.parse(localStorage.getItem("totalItemsInCart")) || 0,
     currentStyle: null,
     currentSize: null,
     isSearchOpen: false,
@@ -28,25 +28,35 @@ export function reducer(state = initialState, action) {
       case ADD_PRODUCT_TO_CART: {
         const newItem = action.payload;
         let currentCart = state.shoppingCart;
+        let totalItemsInCart = state.totalItemsInCart;
 
         for(let i=0; i< currentCart.length; i++){
             if ( currentCart[i].style === newItem.style && currentCart[i].size === newItem.size){
               let newCart = currentCart;
               newCart[i].amount = newCart[i].amount+1;
+              totalItemsInCart = totalItemsInCart +1;
+
+              // update local storage
               localStorage.setItem("shoppingCart", JSON.stringify(newCart));
+              localStorage.setItem("totalItemsInCart", JSON.stringify(totalItemsInCart));
+
               return {...state,  
                       shoppingCart: newCart,
-                      totalItemsInCart: state.totalItemsInCart+1};
+                      totalItemsInCart: totalItemsInCart};
             }
         }
 
         const newCart = [...currentCart, 
                         {...newItem, amount: 1}];
+        totalItemsInCart = totalItemsInCart +1;
+          
+        // update local storage
         localStorage.setItem("shoppingCart", JSON.stringify(newCart));
+        localStorage.setItem("totalItemsInCart", JSON.stringify(totalItemsInCart));
 
         return {...state,  
                 shoppingCart: newCart,
-                totalItemsInCart: state.totalItemsInCart+1
+                totalItemsInCart: totalItemsInCart
               };
       }
 
@@ -85,8 +95,11 @@ export function reducer(state = initialState, action) {
         const cartItemIndex = action.payload.index;
 
         let currentCart = state.shoppingCart;
+        let totalItemsInCart = state.totalItemsInCart;
+
         let newCart = currentCart;
         let newAmount = currentCart[cartItemIndex].amount + deltaAmount;
+        totalItemsInCart = totalItemsInCart+deltaAmount;
 
         if(newAmount === 0){
             delete(currentCart[cartItemIndex]);
@@ -96,12 +109,15 @@ export function reducer(state = initialState, action) {
             let newCart= currentCart;
             newCart[cartItemIndex].amount = newAmount;
         }
-            
+
+        // update local storage
         localStorage.setItem("shoppingCart", JSON.stringify(newCart));
+        localStorage.setItem("totalItemsInCart", JSON.stringify(totalItemsInCart));
+
         return {
           ...state,
           shoppingCart: newCart,
-          totalItemsInCart: state.totalItemsInCart+deltaAmount
+          totalItemsInCart: totalItemsInCart
         };
       }
 

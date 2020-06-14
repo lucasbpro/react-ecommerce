@@ -18,15 +18,15 @@ const Home = () => {
   // pulls data from API and updates global state
   useEffect(()=>{
         fetch(URL_API).then((response) => response.json()).then(
-                  setProductList).then(dispatch(updateProductList(productList)));
-  },[dispatch,productList]);
+                setProductList).then(dispatch(updateProductList(productList)));
+        },[dispatch,productList]);
 
   useEffect(() => setIsLoading(false),[productList]);
 
   return (
     <div data-testid="home" className="home">
         {(isLoading || productList.length===0)?  
-              <h1>Carregando...</h1> : 
+              <h1 className="loading">Carregando...</h1> : 
               <Catalog opacityOn={opacityOn}/>
         }
     </div>

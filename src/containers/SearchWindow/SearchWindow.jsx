@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import WindowHeader from '../../containers/WindowHeader';
@@ -50,11 +51,13 @@ const SearchWindow = () => {
 			<div className="search-results">
 				{filteredProducts?
 					filteredProducts.map( (product,index) => 
-						<SearchItem key={index}
-									itemName={product.name} 
-									itemPicture={product.image} 
-									itemPrice={product.actual_price}
-									itemInstallments={product.installments} />
+						<Link to={`/product/${product.style}`}> 
+							<SearchItem key={index}
+										itemName={product.name} 
+										itemPicture={product.image} 
+										itemPrice={product.actual_price}
+										itemInstallments={product.installments} />
+						</Link>
 					)
 					:
 					<h2>{NO_SEARCH_RESULTS}</h2>

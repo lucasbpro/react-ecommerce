@@ -24,16 +24,20 @@ const ShoppingCart = () => {
 						);
 
 	const sum = (a,b) => {return (a + b)};
-
-	//const totalCartItems = shoppingCart.length===0 ? 
-	//					   0 : shoppingCart.map(item => item.amount).reduce(sum);
 	
-	const totalOrder = productInfoList.length===0 ? 
-							0 : productInfoList.map(item => {
-								return parseFloat(item.actual_price.split(',').join('.').split("R$")[1])
+	const totalOrder = shoppingCart.length===0 ? 
+							0 : shoppingCart.map( item => {
+									const prodInfo = productInfoList.find( product => product.style === item.style);
+									return parseFloat(prodInfo.actual_price.split(',').join('.').split("R$")[1]);
 								}).map( (itemPrice, index) => {
-									return shoppingCart[index]? itemPrice*shoppingCart[index].amount : 0
+										return shoppingCart[index]? itemPrice*shoppingCart[index].amount : 0
 								}).reduce(sum);
+							
+								//	productInfoList.map(item => {
+							//		return parseFloat(item.actual_price.split(',').join('.').split("R$")[1])
+							//	}).map( (itemPrice, index) => {
+							//		return shoppingCart[index]? itemPrice*shoppingCart[index].amount : 0
+							//	}).reduce(sum);
 				
 	const formatter = new Intl.NumberFormat('pt-BR', {
 		style: 'currency',
