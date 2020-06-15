@@ -7,10 +7,12 @@
 }
 
 .search-item-figure {
-    margin: 5px;
+    margin: 1%;
+    width: 40%;
+
     & img {
-        width: auto;
-        height: 150px;
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -40,7 +42,7 @@
     display: flex;
     flex: 0.6;
     flex-direction: column;
-    margin-right: 30px;
+    margin-right: 10px;
 }
 
 .search-item-price {

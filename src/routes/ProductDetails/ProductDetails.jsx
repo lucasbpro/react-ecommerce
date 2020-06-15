@@ -4,8 +4,10 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ProductSizes from '../../components/ProductSizes';
 import WindowHeader from '../../containers/WindowHeader';
-//import ReturnButton from '../../components/ReturnButton';
-import { addItemToCart, updateStyleOnView } from '../../actions';
+
+import { addItemToCart, 
+         updateStyleOnView,
+         toggleSearchWindow } from '../../actions';
 
 import {PRODUCT_DETAILS_TITLE,
         LABEL_ADD_TO_CART_BUTTON, 
@@ -22,6 +24,7 @@ const ProductDetails = () => {
     const product = useSelector(store => store.productList.find(
                                 product => parseInt(product.style, 10) === productId) || {});
     
+    const isSearchOpen = useSelector(store => store.isSearchOpen);
     const selectedSize = useSelector(store => store.currentSize);
     const opacityOn = useSelector(state => state.isSearchOpen || state.isCartOpen);
 
@@ -35,13 +38,14 @@ const ProductDetails = () => {
     };
 
     const handleClickReturn = () => {
-        console.log("redirect");
         setRedirect(true);
     };
 
     useEffect(() => {
+        if(isSearchOpen)
+            dispatch(toggleSearchWindow());
         dispatch(updateStyleOnView(product.style));
-    }, [dispatch, product])
+    },[product])
 
     if (redirect) {
         console.log(redirect)

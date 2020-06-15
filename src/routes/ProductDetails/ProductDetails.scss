@@ -1,6 +1,6 @@
 .product-details {
     margin: 2%;
-    padding: 1px;
+    padding: 2%;
     height: 100%;
     border-radius: 0.5em;
     display: flex;
@@ -13,9 +13,9 @@
 
 .product-details-fig {
     background-color: white;
+    height: 100%;
     margin: 0;
-    width: 50%;
-    height: auto;
+    flex: 0.5;
     overflow: hidden;
     position: relative;
 
@@ -28,6 +28,7 @@
 .product-details-content{
     font-size: 15px;
     font-weight: bold;
+    flex: 0.5;
 
     & h2 {
         margin: 0;
