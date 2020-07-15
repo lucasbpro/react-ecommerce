@@ -17,17 +17,19 @@ const Home = () => {
 
   // pulls data from API and updates global state
   useEffect(()=>{
-        fetch(URL_API).then((response) => response.json()).then(
-                setProductList).then(dispatch(updateProductList(productList)));
+        fetch(URL_API).then(response => response.json()).then((json)=>{
+            if (json.length!==0 && json!=="No subscription") 
+              setProductList(json)
+        }).then(dispatch(updateProductList(productList)));
         },[dispatch,productList]);
 
   useEffect(() => setIsLoading(false),[productList]);
 
   return (
     <div data-testid="home" className="home">
-        {(isLoading || productList.length===0)?  
-              <h1 className="loading">Carregando...</h1> : 
-              <Catalog opacityOn={opacityOn}/>
+        {isLoading? <h1 className="loading">Carregando...</h1> : 
+            (productList.length!==0 && productList!=="No subscription")?
+              <Catalog opacityOn={opacityOn}/> : <h1 className="loading">Nenhum item disponível :/</h1> 
         }
     </div>
   );
