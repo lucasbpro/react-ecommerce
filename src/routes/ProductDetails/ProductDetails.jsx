@@ -44,8 +44,11 @@ const ProductDetails = () => {
     useEffect(() => {
         if(isSearchOpen)
             dispatch(toggleSearchWindow());
+    });
+
+    useEffect(() => {
         dispatch(updateStyleOnView(product.style));
-    },[product])
+    },[dispatch,product])
 
     if (redirect) {
         console.log(redirect)
