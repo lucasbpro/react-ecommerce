@@ -1,11 +1,12 @@
 # react-ecommerce
 
-This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/). This SPA (*Single Page Application*) is implemented in React.js and uses Hooks and Redux. It is a sample of an e-commerce website which provides the following functionalities:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/117797d8-2778-43d7-9809-d4f21d6afe41/deploy-status)](https://app.netlify.com/sites/fashionista-outfit/deploys)
 
-- It is *mobile-first* but also works in desktop;
-- presents a catalog of products in the online store, which includes their description, price, available sizes and picture;
-- allows user to select multiple products and add them to a shopping cart;
-- allows user to search for a specific product.
+This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/), which consists of a SPA (*Single Page Application*) implemented in React.js with the aid of Hooks and Redux design patterns. The app is a simple and functional e-commerce portal which provides:
+- *mobile-first* design, but also works in desktop;
+- a catalog of products in the online store, which includes their description, price, available sizes and picture;
+- capability for adding multiple products to a shopping cart;
+- capability for searching a specific product.
 
 ## How to run this locally
 
