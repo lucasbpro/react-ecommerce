@@ -1,6 +1,6 @@
 # react-ecommerce
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/117797d8-2778-43d7-9809-d4f21d6afe41/deploy-status)](https://app.netlify.com/sites/fashionista-outfit/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/117797d8-2778-43d7-9809-d4f21d6afe41/deploy-status)](https://fashionista-outfit.netlify.app/)
 
 This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/), which consists of a SPA (*Single Page Application*) implemented in React.js with the aid of Hooks and Redux design patterns. The app is a simple and functional e-commerce portal which provides:
 - *mobile-first* design, but also works in desktop;
