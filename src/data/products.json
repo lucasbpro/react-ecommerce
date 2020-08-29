@@ -1,0 +1,77 @@
+{
+    "products": [
+        {
+            "name": "VESTIDO TRANSPASSE BOW",
+		    "style": "01",
+		    "code_color": "",
+		    "color_slug": "",
+		    "color": "",
+		    "on_sale": false,
+		    "regular_price": "R$ 129,90",
+		    "actual_price": "R$ 129,90",
+		    "discount_percentage": "",
+            "installments": "3x R$ 66,33",
+            "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002605_615_catalog_1.jpg?1460136912",
+		    "sizes": [
+			    {
+				    "available": true,
+				    "size": "M"
+			    }
+            ]
+        },
+        {
+            "name": "REGATA ALCINHA FOLK",
+		    "style": "02",
+		    "code_color": "",
+		    "color_slug": "",
+		    "color": "",
+		    "on_sale": false,
+		    "regular_price": "R$ 99,90",
+		    "actual_price": "R$ 99,90",
+		    "discount_percentage": "",
+            "installments": "3x R$ 33,30",
+            "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20002570_002_catalog_1.jpg?1459948578",
+		    "sizes": [
+			    {
+				    "available": true,
+				    "size": "PP"
+                },
+                {
+				    "available": true,
+				    "size": "P"
+			    },
+                {
+				    "available": true,
+				    "size": "M"
+                },
+                {
+				    "available": true,
+				    "size": "G"
+                },
+                {
+				    "available": true,
+				    "size": "GG"
+			    }
+            ]
+        },
+        {
+            "name": "VESTIDO CURTO FESTIVAL",
+		    "style": "03",
+		    "code_color": "",
+		    "color_slug": "",
+		    "color": "",
+		    "on_sale": true,
+		    "regular_price": "R$ 129,90",
+		    "actual_price": "R$ 59,90",
+		    "discount_percentage": "54%",
+            "installments": "1x R$ 59,90",
+            "image": "https://d3l7rqep7l31az.cloudfront.net/images/products/20001684_585_catalog_1.jpg?",
+		    "sizes": [
+			    {
+				    "available": true,
+				    "size": "M"
+			    }
+            ]
+        }
+    ]
+}
