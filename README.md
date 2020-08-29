@@ -1,28 +1,25 @@
 # react-ecommerce
 
-This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/). This SPA (*Single Page Application*) is implemented in React.js and uses Hooks and Redux. It is a sample of an e-commerce website which provides the following functionalities:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/117797d8-2778-43d7-9809-d4f21d6afe41/deploy-status)](https://fashionista-outfit.netlify.app/)
 
-- It is *mobile-first* but also works in desktop;
-- presents a catalog of products in the online store, which includes their description, price, available sizes and picture;
-- allows user to select multiple products and add them to a shopping cart;
-- allows user to search for a specific product.
-
-The application is running online [here](https://fashionista-outfit.netlify.app/).
+This is my final project of AceleraDev React Online @[Codenation](https://www.codenation.dev/), which consists of a SPA (*Single Page Application*) implemented in React.js with the aid of Hooks and Redux design patterns. The app is a simple and functional e-commerce portal which provides:
+- *mobile-first* design, but also works in desktop;
+- a catalog of products in the online store, which includes their description, price, available sizes and picture;
+- capability for adding multiple products to a shopping cart;
+- capability for searching a specific product.
 
 ## How to run this locally
 
 You need to have **[Node v13.8.0](https://nodejs.org/en/)** (or later) installed in your machine.
 
-Then, open this project directory in a terminal and install all the dependencies:
+To run the project, open the project folder in a terminal and install all the dependencies:
 
 ```shell
 $ npm install
 ```
-And start the development server:
+After dependencies installation, start the development server by typing:
 
 ```shell
 $ npm start
 ```
 The application will start at [http://localhost:3000](http://localhost/:3000).
-
-
